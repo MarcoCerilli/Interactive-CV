@@ -1,0 +1,292 @@
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 0px; /* Aumentato il padding-top per lasciare più spazio sopra */
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto; /* Garantisce che il contenuto sia centrato */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box; /* Garantisce che padding e margine non influiscano sulla larghezza totale */
+}
+
+/* Pulsante Modalità Scura */
+#darkModeBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: inline-block; /* Rendiamo il bottone visibile */
+    margin: 10px 0; /* Distanza dal bordo superiore */
+    transition: background-color 0.3s ease;
+}
+
+#darkModeBtn:hover {
+    background-color: #0056b3;
+}
+
+#darkModeBtn i {
+    margin-right: 10px; /* Distanza tra l'icona e il testo */
+}
+
+/* Header */
+h1, h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #0056b3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Modalità Scura */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode p, body.dark-mode li {
+    color: #e0e0e0; /* Rende il testo visibile in modalità scura */
+}
+
+body.dark-mode a {
+    color: #bb86fc;
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode section {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+/* Transizione Modalità Scura */
+body.dark-mode nav {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+/* Sezione Profilo */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+.profile .info {
+    color: #333;
+    font-size: 1rem;
+}
+
+.profile .info h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.profile .info p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.profile .info a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.profile .info a:hover {
+    color: #0056b3;
+}
+
+/* Aggiungi foto e informazioni professionali */
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar (se necessaria) */
+nav {
+    background-color: #333;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+/* Pulsante Scarica CV */
+#downloadCVBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px; /* Spazio maggiore per il testo */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: inline-block;
+    text-align: center; /* Centra il testo all'interno */
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif; /* Usa un font più moderno e leggibile */
+    min-width: 200px; /* Assicura che il pulsante abbia una larghezza minima */
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera per il pulsante */
+}
+
+#downloadCVBtn:hover {
+    background-color: #0056b3;
+}
+
+#downloadCVBtn:active {
+    background-color: #003d82; /* Colore più scuro al clic */
+}
+
+/* Dark mode button */
+#darkModeBtn {
+    position: fixed;  /* Fissa il pulsante */
+    top: 20px;         /* Distanza dalla parte superiore della pagina, sotto la navbar */
+    right: 400px;       /* Distanza dal lato destro */
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    z-index: 1001;      /* Assicurati che il pulsante stia sopra la navbar */
+    transition: background-color 0.3s ease;
+}
+
+#darkModeBtn:hover {
+    background-color: #9a4eeb;
+}
+
+.content-wrapper {
+    max-width: 1000px; /* Mantiene il contenuto centrato e limitato */
+    margin: 0 auto; /* Centra il contenuto */
+    padding-top: 70px; /* Aggiungi padding per separare dal navbar */
+    background-color: white; /* Sfondo bianco per il contenuto */
+    padding: 20px; /* Padding per dare spazio tra il contenuto e il bordo */
+    border-radius: 8px; /* Rendi il bordo del contenuto arrotondato */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Aggiungi una leggera ombra per il contenuto */
+}
+section {
+    background-color: white;
+    padding: 40px; /* Aumentato il padding per ingrandire lo spazio intorno al contenuto */
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+#downloadCV {
+    background-color: #007bff; /* Colore di sfondo blu */
+    color: white; /* Colore del testo bianco */
+    font-size: 1.0rem; /* Dimensione del font */
+    padding: 10px 10px; /* Distanze interne (padding) per renderlo più grande */
+    border-radius: 30px; /* Bordi arrotondati per un aspetto moderno */
+    border: none; /* Rimuove il bordo di default */
+    cursor: pointer; /* Cambia il cursore quando si passa sopra il pulsante */
+    text-transform: uppercase; /* Trasforma il testo in maiuscolo */
+    letter-spacing: 1px; /* Spaziatura tra le lettere per un effetto più elegante */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aggiunge una leggera ombra per un effetto di profondità */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Aggiungi una transizione per gli effetti */
+}
+
+#downloadCV:hover {
+    background-color: #0056b3; /* Colore più scuro quando si passa sopra il pulsante */
+    transform: translateY(-3px); /* Leggero sollevamento del pulsante quando si passa sopra */
+}
+
+#downloadCV:active {
+    background-color: #004085; /* Colore ancora più scuro quando il pulsante viene premuto */
+    transform: translateY(0); /* Ripristina la posizione originale durante il click */
+}

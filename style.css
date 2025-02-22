@@ -1,3 +1,4 @@
+
 /* Reset base */
 * {
     margin: 0;
@@ -258,6 +259,7 @@ footer {
     border-radius: 8px; /* Rendi il bordo del contenuto arrotondato */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Aggiungi una leggera ombra per il contenuto */
 }
+
 section {
     background-color: white;
     padding: 40px; /* Aumentato il padding per ingrandire lo spazio intorno al contenuto */
@@ -287,6 +289,5 @@ section {
 }
 
 #downloadCV:active {
-    background-color: #004085; /* Colore ancora più scuro quando il pulsante viene premuto */
-    transform: translateY(0); /* Ripristina la posizione originale durante il click */
+    background-color: #004085; /* Colore ancora più scuro al clic */
 }

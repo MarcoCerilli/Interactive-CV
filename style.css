@@ -287,6 +287,4 @@ section {
 }
 
 #downloadCV:active {
-    background-color: #004085; /* Colore ancora più scuro quando il pulsante viene premuto */
-    transform: translateY(0); /* Ripristina la posizione originale durante il click */
-}
+    background-color: #004085; /* Colore ancora più scuro

@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (downloadCVBtn) {
         downloadCVBtn.addEventListener("click", function() {
             const link = document.createElement("a");
-            link.href = "https://marcocerilli.github.io/Interactive-CV/CV_Marco_Cerilli.pdf";
+            link.href = "https://marcocerilli.github.io/Interactive-CV/";
             link.download = "CV_Marco_Cerilli.pdf";
             document.body.appendChild(link);
             link.click();

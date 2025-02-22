@@ -1,6 +1,7 @@
 
 document.getElementById("darkModeBtn").addEventListener("click", function() {
-document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
+    console.log(document.body.classList);  
 });
 
 document.getElementById("downloadCV").addEventListener("click", function() {

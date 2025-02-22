@@ -1,4 +1,3 @@
-
 /* Reset base */
 * {
     margin: 0;
@@ -6,54 +5,17 @@
     box-sizing: border-box;
 }
 
+/* Corpo del documento */
 body {
-    padding-top: 0px; /* Aumentato il padding-top per lasciare più spazio sopra */
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f9;
+    background-color: #aaaab9;
     color: #333;
     line-height: 1.6;
-    padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto; /* Garantisce che il contenuto sia centrato */
+    padding-top: 50px; /* Spazio per la navbar fissa */
+    max-width: 1200px; /* Aumentato per rendere il wrapper più largo */
+    margin: 0 auto;
     transition: background-color 0.3s ease, color 0.3s ease;
-    box-sizing: border-box; /* Garantisce che padding e margine non influiscano sulla larghezza totale */
-}
-
-/* Pulsante Modalità Scura */
-#darkModeBtn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: inline-block; /* Rendiamo il bottone visibile */
-    margin: 10px 0; /* Distanza dal bordo superiore */
-    transition: background-color 0.3s ease;
-}
-
-#darkModeBtn:hover {
-    background-color: #0056b3;
-}
-
-#darkModeBtn i {
-    margin-right: 10px; /* Distanza tra l'icona e il testo */
-}
-
-/* Header */
-h1, h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-h1 {
-    font-size: 3rem;
-    color: #0056b3;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    box-sizing: border-box;
 }
 
 /* Modalità Scura */
@@ -63,14 +25,14 @@ body.dark-mode {
 }
 
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode p, body.dark-mode li {
-    color: #e0e0e0; /* Rende il testo visibile in modalità scura */
+    color: #e0e0e0;
 }
 
 body.dark-mode a {
     color: #bb86fc;
 }
 
-body.dark-mode header {
+body.dark-mode header, body.dark-mode nav, body.dark-mode footer {
     background-color: #1f1f1f;
 }
 
@@ -79,14 +41,146 @@ body.dark-mode section {
     color: #e0e0e0;
 }
 
-/* Transizione Modalità Scura */
-body.dark-mode nav {
-    background-color: #1f1f1f;
+/* Pulsante Modalità Scura */
+#darkModeBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 12px 24px; /* Più ampio */
+    border-radius: 10px; /* Bordi arrotondati più morbidi */
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+    z-index: 1001;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra più marcata */
 }
 
-body.dark-mode footer {
-    background-color: #1f1f1f;
-    color: #e0e0e0;
+#darkModeBtn:hover {
+    background-color: #9a4eeb;
+    transform: translateY(-4px); /* Effetto di sollevamento */
+}
+
+#darkModeBtn:active {
+    background-color: #7c40c7;
+    transform: translateY(0); /* Annulla sollevamento quando cliccato */
+}
+
+/* Pulsante Scarica CV */
+#downloadCVBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px; /* Più ampio */
+    border: none;
+    border-radius: 10px; /* Bordi arrotondati più morbidi */
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    min-width: 220px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra più marcata */
+}
+
+#downloadCVBtn:hover {
+    background-color: #0056b3;
+    transform: translateY(-4px); /* Effetto di sollevamento */
+}
+
+#downloadCVBtn:active {
+    background-color: #003d82;
+    transform: translateY(0); /* Annulla sollevamento quando cliccato */
+}
+
+/* Navbar a scomparsa */
+/* Animazione apertura/chiusura della navbar */
+nav {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: -100%;  /* Inizialmente nascosta */
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: top 0.3s ease; /* Aggiunta animazione di apertura */
+}
+
+nav.show {
+    top: 0;  /* Quando la navbar è visibile */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+/* Pulsante Menu (Hamburger) */
+#menuBtn {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.5rem; /* Più grande e leggibile */
+    color: white;
+    padding: 10px 20px; /* Più spaziato, simile al pulsante 'Scarica CV' */
+    border-radius: 10px; /* Bordi arrotondati */
+    background-color: #007bff; /* Colore blu come il pulsante 'Scarica CV' */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+    font-family: 'Poppins', sans-serif;
+}
+
+#menuBtn:hover {
+    background-color: #0056b3; /* Colore più scuro quando si passa sopra */
+    transform: translateY(-4px); /* Effetto di sollevamento */
+}
+
+#menuBtn:active {
+    background-color: #003d82; /* Colore più scuro quando si preme */
+    transform: translateY(0); /* Annulla sollevamento quando si clicca */
+}
+
+#menuBtn span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white; /* Colore delle barre */
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+/* Animazione hamburger per il pulsante */
+#menuBtn.open span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg); /* Ruota la prima barra per formare una X */
+}
+
+#menuBtn.open span:nth-child(2) {
+    opacity: 0; /* Nasconde la barra centrale */
+}
+
+#menuBtn.open span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg); /* Ruota la terza barra per formare una X */
 }
 
 /* Sezione Profilo */
@@ -95,7 +189,7 @@ body.dark-mode footer {
     align-items: center;
     justify-content: center;
     margin-top: 30px;
-    text-align: left; /* Allinea il testo a sinistra */
+    text-align: left;
 }
 
 .profile img {
@@ -129,7 +223,7 @@ body.dark-mode footer {
     color: #0056b3;
 }
 
-/* Aggiungi foto e informazioni professionali */
+/* Sezione generica */
 section {
     background-color: white;
     padding: 20px;
@@ -151,144 +245,98 @@ section {
     }
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Navbar (se necessaria) */
-nav {
-    background-color: #333;
-    padding: 5px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    list-style: none;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
-    padding: 10px;
-}
-
-nav ul li a:hover {
-    color: #007bff;
-}
-
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #080808;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 10px;
     margin-top: 50px;
 }
 
-/* Pulsante Scarica CV */
-#downloadCVBtn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 25px; /* Spazio maggiore per il testo */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: inline-block;
-    text-align: center; /* Centra il testo all'interno */
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins', sans-serif; /* Usa un font più moderno e leggibile */
-    min-width: 200px; /* Assicura che il pulsante abbia una larghezza minima */
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera per il pulsante */
-}
-
-#downloadCVBtn:hover {
-    background-color: #0056b3;
-}
-
-#downloadCVBtn:active {
-    background-color: #003d82; /* Colore più scuro al clic */
-}
-
-/* Dark mode button */
-#darkModeBtn {
-    position: fixed;  /* Fissa il pulsante */
-    top: 20px;         /* Distanza dalla parte superiore della pagina, sotto la navbar */
-    right: 400px;       /* Distanza dal lato destro */
-    background-color: #bb86fc;
-    color: #121212;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    border: none;
-    z-index: 1001;      /* Assicurati che il pulsante stia sopra la navbar */
-    transition: background-color 0.3s ease;
-}
-
-#darkModeBtn:hover {
-    background-color: #9a4eeb;
-}
-
+/* Content Wrapper */
 .content-wrapper {
-    max-width: 1000px; /* Mantiene il contenuto centrato e limitato */
-    margin: 0 auto; /* Centra il contenuto */
-    padding-top: 70px; /* Aggiungi padding per separare dal navbar */
-    background-color: white; /* Sfondo bianco per il contenuto */
-    padding: 20px; /* Padding per dare spazio tra il contenuto e il bordo */
-    border-radius: 8px; /* Rendi il bordo del contenuto arrotondato */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Aggiungi una leggera ombra per il contenuto */
-}
-
-section {
+    max-width: 1200px; /* Aumentato per un wrapper più largo */
+    margin: 0 auto;
+    padding-top: 90px;  /* Spazio per la navbar fissa */
     background-color: white;
-    padding: 40px; /* Aumentato il padding per ingrandire lo spazio intorno al contenuto */
-    margin: 20px 0;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-out;
 }
 
-#downloadCV {
-    background-color: #007bff; /* Colore di sfondo blu */
-    color: white; /* Colore del testo bianco */
-    font-size: 1.0rem; /* Dimensione del font */
-    padding: 10px 10px; /* Distanze interne (padding) per renderlo più grande */
-    border-radius: 30px; /* Bordi arrotondati per un aspetto moderno */
-    border: none; /* Rimuove il bordo di default */
-    cursor: pointer; /* Cambia il cursore quando si passa sopra il pulsante */
-    text-transform: uppercase; /* Trasforma il testo in maiuscolo */
-    letter-spacing: 1px; /* Spaziatura tra le lettere per un effetto più elegante */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aggiunge una leggera ombra per un effetto di profondità */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Aggiungi una transizione per gli effetti */
+/* Responsive design per dispositivi mobili */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #darkModeBtn {
+        top: 10px;
+        right: 10px;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    #downloadCVBtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
 }
 
-#downloadCV:hover {
-    background-color: #0056b3; /* Colore più scuro quando si passa sopra il pulsante */
-    transform: translateY(-3px); /* Leggero sollevamento del pulsante quando si passa sopra */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #darkModeBtn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    #downloadCV {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
 }
 
-#downloadCV:active {
-    background-color: #004085; /* Colore ancora più scuro quando il pulsante viene premuto */
-    transform: translateY(0); /* Ripristina la posizione originale durante il click */
+#contact a {
+    color: #007bff;
 }

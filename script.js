@@ -1,25 +1,44 @@
 document.addEventListener("DOMContentLoaded", function() {
     const menuBtn = document.getElementById("menuBtn");
     const navbar = document.querySelector("nav");
+    const menuFixedBtn = document.getElementById("menuFixedBtn"); // Pulsante fisso
     const darkModeBtn = document.getElementById("darkModeBtn");
     const downloadCVBtn = document.getElementById("downloadCVBtn");
     const menuLinks = document.querySelectorAll("nav ul li a");
 
+    function toggleMenu() {
+        menuBtn.classList.toggle("open");
+        navbar.classList.toggle("show");
+    }
+
     if (menuBtn && navbar) {
-        menuBtn.addEventListener("click", function() {
-            this.classList.toggle("open"); // Anima il pulsante del menu
-            navbar.classList.toggle("show"); // Mostra/nasconde la navbar
+        menuBtn.addEventListener("click", function(event) {
+            toggleMenu();
+            event.stopPropagation(); // Impedisce la chiusura immediata
         });
 
-        // Chiudi la navbar quando si clicca su un link del menu
-        if (menuLinks.length > 0) {
-            menuLinks.forEach(link => {
-                link.addEventListener("click", () => {
-                    navbar.classList.remove("show");
-                    menuBtn.classList.remove("open");
-                });
+        // Pulsante fisso per aprire il menu
+        if (menuFixedBtn) {
+            menuFixedBtn.addEventListener("click", function() {
+                toggleMenu();
             });
         }
+
+        // Chiude la navbar quando si clicca su un link del menu
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navbar.classList.remove("show");
+                menuBtn.classList.remove("open");
+            });
+        });
+
+        // Chiude la navbar quando si clicca fuori
+        document.addEventListener("click", function(event) {
+            if (!navbar.contains(event.target) && !menuBtn.contains(event.target) && !menuFixedBtn.contains(event.target)) {
+                navbar.classList.remove("show");
+                menuBtn.classList.remove("open");
+            }
+        });
 
         // Chiudi la navbar quando si scrolla
         window.addEventListener("scroll", () => {
